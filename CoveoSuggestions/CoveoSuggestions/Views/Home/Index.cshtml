@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "City Suggestions";
+}
+@section JavaScript
+{
+    <script src="~/Scripts/site/Autocomplete.js"></script>
+}
+<div id="body">
+    <div class="container, body-content">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group">
+                    <label for="ac-demo" class="control-label">Start typing the city name</label>
+                    <input class="form-control bs-autocomplete" id="ac-demo" autofocus
+                           value="" placeholder="Type two characters of a city name..." type="text"
+                           data-source="demo_source.php" data-hidden_field_id="id" data-item_id="id" data-item_label="name" autocomplete="off">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-12">
+                <div class="form-group" id="lat-group">
+                    <label for="lat" class="control-label">Latitude</label>
+                    <input class="form-control" id="lat"
+                           value="" placeholder="Latitude" type="text">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-12">
+                <div class="form-group" id="long-group">
+                    <label for="long" class="control-label">Longitude</label>
+                    <input class="form-control" id="long"
+                           value="" placeholder="Longitude" type="text">
+                </div>
+            </div>
+            <div class="col-xs-1 hidden-md">
+                <div class="form-group">
+                    <label for="city-code" class="control-label"></label>
+                    <input class="form-control" id="city-code" type="hidden" name="citycode" value="" readonly>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
