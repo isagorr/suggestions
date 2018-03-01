@@ -11,7 +11,7 @@ namespace CoveoSuggestions.Util.Strategy
     {
         private static readonly double DISTANCE_OFFSET = 5000;
         private static readonly double WORD_COEFF = 0.5;
-        private static readonly double DISTANCE_COEFF = 0.2;
+        private static readonly double DISTANCE_COEFF = 0.4;
         private static readonly double POP_COEFF = 0.1;
 
         protected override void GetScoreInternal(RequestCity requestCity, IEnumerable<City> suggestions)
@@ -63,10 +63,11 @@ namespace CoveoSuggestions.Util.Strategy
             return 1 - distance / DISTANCE_OFFSET;
         }
 
-        private static int GetLCS(string str1, string str2)
+        private static double GetLCS(string str1, string str2)
         {
             int[,] table;
-            return GetLCSInternal(str1, str2, out table);
+            double wordDistance = GetLCSInternal(str1, str2, out table);
+            return 0 != wordDistance ? 1 / wordDistance : 0;
         }
 
         private static int GetLCSInternal(string str1, string str2, out int[,] matrix)
